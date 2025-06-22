@@ -1,24 +1,29 @@
-import os
 import json
-from optimizer import optimize_dfo  # Replace with your actual solver function
+import os
+from optimizer import optimize_dfo
+from data_loader import load_data
+from plotting import plot_generation_schedule
 
 DATA_DIR = "data"
-
-def load_instance(file_path):
-    with open(file_path, "r") as f:
-        return json.load(f)
+PLOT_DIR = "plots"
 
 def main():
-    for file_name in sorted(os.listdir(DATA_DIR)):
-        if file_name.endswith(".json"):
-            path = os.path.join(DATA_DIR, file_name)
-            print(f"\n--- Solving {file_name} ---")
+    for filename in sorted(os.listdir(DATA_DIR)):
+        if filename.endswith(".json"):
+            print(f"\n--- Solving {filename} ---")
+            filepath = os.path.join(DATA_DIR, filename)
             try:
-                instance = load_instance(path)
-                result = optimize_dfo(instance)
-                print(f"Result for {file_name}: {result}")
+                data = load_data(filepath)
+                result = optimize_dfo(data)
+                if result.success:
+                    print(f"Success. Final cost: {result.fun:.2f}")
+                    plot_path = os.path.join(PLOT_DIR, filename.replace(".json", ".png"))
+                    plot_generation_schedule(result, data, save_path=plot_path)
+                    print(f"📊 Plot saved to {plot_path}")
+                else:
+                    print(f"Optimization failed: {result.message}")
             except Exception as e:
-                print(f"❌ Error solving {file_name}: {e}")
+                print(f"Error solving {filename}: {e}")
 
 if __name__ == "__main__":
     main()
