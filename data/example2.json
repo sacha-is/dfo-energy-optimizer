@@ -1,0 +1,18 @@
+{
+  "P": 2,
+  "T": 6,
+  "plant_type": ["Nuclear", "Renewable"],
+  "cost_per_unit": [5, 2],
+  "fixed_cost": [200, 50],
+  "min_output": [10, 0],
+  "max_output": [50, 40],
+  "ramp_rate": [10, 20],
+  "emissions": [1, 0],
+  "emission_limit": [3000, 0],
+  "demand": [40, 35, 30, 25, 30, 35],
+  "transmission_cap": [60, 60, 60, 60, 60, 60],
+  "renewable_availability": [
+    [0, 0, 0, 0, 0, 0],
+    [15, 10, 5, 10, 15, 20]
+  ]
+}

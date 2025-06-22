@@ -1,0 +1,18 @@
+{
+  "P": 2,
+  "T": 5,
+  "plant_type": ["Fossil", "Renewable"],
+  "cost_per_unit": [10, 3],
+  "fixed_cost": [100, 40],
+  "min_output": [15, 0],
+  "max_output": [50, 30],
+  "ramp_rate": [15, 25],
+  "emissions": [8, 0],
+  "emission_limit": [1000, 0],
+  "demand": [20, 25, 30, 25, 20],
+  "transmission_cap": [60, 60, 60, 60, 60],
+  "renewable_availability": [
+    [0, 0, 0, 0, 0],
+    [20, 25, 20, 15, 30]
+  ]
+}
