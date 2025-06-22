@@ -35,7 +35,7 @@ dfo-energy-optimizer/
 git clone https://github.com/sacha-is/dfo-energy-optimizer.git
 cd dfo-energy-optimizer
 pip install -r requirements.txt
-
+```
 
 ---
 
